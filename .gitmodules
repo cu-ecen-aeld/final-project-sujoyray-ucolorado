@@ -1,0 +1,6 @@
+[submodule "poky"]
+	path = poky
+	url = https://git.yoctoproject.org/git/poky
+[submodule "aesd_final_project"]
+	path = aesd_final_project
+	url = https://git.yoctoproject.org/git/poky
