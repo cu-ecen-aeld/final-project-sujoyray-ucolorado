@@ -13,7 +13,10 @@ PV = "2020.04"
 # a) we want it to use git fetcher - hence git:// prefix in GIT_URI (if we
 #  used https here, we'd endup attempting wget instead of git)
 # b) and we want git fetcher to use https protocol, hence GIT_PROTOCOL as https
-UBOOT_GIT_URI = "git:////home/sujoy/master-studies/linux_uboot/uboot-2020.04-rc3-test"
-UBOOT_GIT_PROTOCOL = "file"
-SRCREV = "a48b6f2ecb8020a6e9437f0c14ca180984d9eaf4"
-BRANCH = "u-boot-2020.04-rc3"
+
+
+UBOOT_GIT_URI = "git://git@github.com/sujoyray-ucolorado/final-project-assignment-uboot-sujoyray.git"
+UBOOT_GIT_PROTOCOL = "https"
+SRCREV = "6a00f48beb303e7ef4fb92359e6ef9741ade6aa9"
+BRANCH = "main"
+

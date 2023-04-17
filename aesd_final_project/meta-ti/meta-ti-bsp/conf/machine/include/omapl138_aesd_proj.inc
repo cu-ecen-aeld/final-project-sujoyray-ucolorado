@@ -3,8 +3,7 @@ SOC_FAMILY:append = ":omapl138_aesd_proj"
 
 require conf/machine/include/arm/armv5/tune-arm926ejs.inc
 
-KERNEL_IMAGETYPE = "zImage"
-#KERNEL_IMAGETYPE = "uImage"
+
 UBOOT_ENTRYPOINT = "0xc0008000"
 UBOOT_LOADADDRESS = "0xc0008000"
 UIMAGE_LOADADDR = "0xc0008000"
