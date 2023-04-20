@@ -23,7 +23,7 @@ PV = "5.10.177+git${SRCPV}"
 BRANCH = "main"
 KERNEL_GIT_URI = "git://git@github.com/sujoyray-ucolorado/final-project-assignment-sujoyray.git"
 KERNEL_GIT_PROTOCOL= "https"
-SRCREV = "cd1b4bac42fc36acf1af90cb6638b0582b856d1b"
+SRCREV = "0418f869a0642b95d87ccf4acada96fda52fdd95"
 
 SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
             file://aesd_defconfig"
