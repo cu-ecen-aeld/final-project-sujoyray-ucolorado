@@ -16,19 +16,35 @@ COMPRESS_IMAGE = "none"
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-5.10:"
 
 KERNEL_DEFCONFIG = "aesd_defconfig"
+KERNEL_DEVICETREE:append = "da850-lcdk_aesd.dtb"
 
 PV = "5.10.177+git${SRCPV}"
 
 BRANCH = "main"
 KERNEL_GIT_URI = "git://git@github.com/sujoyray-ucolorado/final-project-assignment-sujoyray.git"
 KERNEL_GIT_PROTOCOL= "https"
-SRCREV = "ec26c5758dd3616ae5dfa852b0ca652f6baddbf1"
+SRCREV = "cd1b4bac42fc36acf1af90cb6638b0582b856d1b"
 
 SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
             file://aesd_defconfig"
 
 FILES:${KERNEL_PACKAGE_NAME}-devicetree += "/${KERNEL_IMAGEDEST}/*.itb"
 
+#do_compile:append() {
+#    #ln -sf ${D}/boot/zImage-5.10.177-yocto-standard ${D}/boot/zImage
+#    rm -f ${D}/boot/uImage-5.10.177-yocto-standard
+#    cat ${D}/boot/zImage-5.10.177-yocto-standard ${D}/boot/da850-lcdk_aesd.dtb  >> ${D}/boot/zImage.tmp
+#    mkimage -A arm -O linux -T kernel -C none -a 0xc0008000 -e 0xc0008000 -n "Linux kernel" -d ${D}/boot/zImage.tmp ${D}/boot/uImage-5.10.177-yocto-standard
+#    rm -f ${D}/boot/zImage.tmp
+#}
+uboot_prep_kimage:append () {
+    # This function is defined in kernel-devicetree.class
+    dtb_file=`get_real_dtb_path_in_kernel "${KERNEL_DEVICETREE}"`
+
+    mv linux.bin linux-orig.bin
+    cat linux-orig.bin "${dtb_file}" > linux+dtb.bin
+    ln -s linux+dtb.bin linux.bin
+}
 
 #do_install:append() {
 #    mkimage -A arm -O linux -T kernel -C none -a 0xc0008000 -e 0xc0008000 -n "Linux kernel" -d ${D}/boot/zImage-5.6.0-yocto-standard ${D}/boot/uImage-uncompressed
