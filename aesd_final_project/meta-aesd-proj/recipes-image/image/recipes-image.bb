@@ -13,3 +13,5 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 # Now add the multilib packages we want to install
 #IMAGE_INSTALL:append = " u-boot-tools-mkimage"
 #IMAGE_INSTALL:append = " u-boot-native"
+IMAGE_INSTALL:append = " dropbear"
+
