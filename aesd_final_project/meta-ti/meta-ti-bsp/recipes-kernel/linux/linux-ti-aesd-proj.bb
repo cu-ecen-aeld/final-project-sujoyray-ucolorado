@@ -30,13 +30,8 @@ SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
 
 FILES:${KERNEL_PACKAGE_NAME}-devicetree += "/${KERNEL_IMAGEDEST}/*.itb"
 
-#do_compile:append() {
-#    #ln -sf ${D}/boot/zImage-5.10.177-yocto-standard ${D}/boot/zImage
-#    rm -f ${D}/boot/uImage-5.10.177-yocto-standard
-#    cat ${D}/boot/zImage-5.10.177-yocto-standard ${D}/boot/da850-lcdk_aesd.dtb  >> ${D}/boot/zImage.tmp
-#    mkimage -A arm -O linux -T kernel -C none -a 0xc0008000 -e 0xc0008000 -n "Linux kernel" -d ${D}/boot/zImage.tmp ${D}/boot/uImage-5.10.177-yocto-standard
-#    rm -f ${D}/boot/zImage.tmp
-#}
+## The following recipe was used from https://gist.github.com/rgov/0628785685ab858a99c5bfca626c1d8f
+
 uboot_prep_kimage:append () {
     # This function is defined in kernel-devicetree.class
     dtb_file=`get_real_dtb_path_in_kernel "${KERNEL_DEVICETREE}"`
@@ -45,11 +40,3 @@ uboot_prep_kimage:append () {
     cat linux-orig.bin "${dtb_file}" > linux+dtb.bin
     ln -s linux+dtb.bin linux.bin
 }
-
-#do_install:append() {
-#    mkimage -A arm -O linux -T kernel -C none -a 0xc0008000 -e 0xc0008000 -n "Linux kernel" -d ${D}/boot/zImage-5.6.0-yocto-standard ${D}/boot/uImage-uncompressed
-#}
-
-#do_install:append() {
-#mkimage -A arm -O linux -T kernel -C gzip -a 0x80008000 -e 0x80008000 -d ${D}/boot/uImage-5.6.0-yocto-standard  ${D}/boot/uncompressed-image
-#}
