@@ -14,5 +14,6 @@ BBLAYERS ?= " \
   ##OEROOT##/meta-ti/meta-ti-bsp \
   ##OEROOT##/meta-ti/meta-ti-extras \
   ##OEROOT##/meta-aesd-proj \
+  ##OEROOT##/meta-openembedded/meta-oe \
   "
 
