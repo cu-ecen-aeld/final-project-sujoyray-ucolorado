@@ -6,7 +6,9 @@ https://github.com/cu-ecen-aeld/final-project-sujoyray-ucolorado/wiki/ARM-Azure-
 # 2. Project Schedule page: 
 https://github.com/users/sujoyray-ucolorado/projects/1/views/1
 
-# 3. Final project demo : To be added
+# 3. Final project demo : 
+1. For project demo, please visit the page: https://github.com/cu-ecen-aeld/final-project-sujoyray-ucolorado/wiki/SujoyRay-Final-Project-Video
+2. For deatiled video, please see the link https://user-images.githubusercontent.com/111943882/235355265-93f321fa-97fc-4f9b-8c9d-72c79401cb62.mp4
 
 # 4. How to build the code
 
